@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Are You Angry?</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+    .card {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 380px;
+      width: 90%;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+    button {
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+    .no {
+      background: #4caf50;
+      color: white;
+    }
+    .back {
+      background: #555;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <div class="card" id="page1">
+    <h1>Ek Important Question 🥺</h1>
+    <p>Gussa hai ladoo ?</p>
+    <button class="yes" onclick="goYes()">Yes 😠</button>
+    <button class="no" onclick="goNo()">No 🙂</button>
+  </div>
+
+  <!-- Page 2 : YES -->
+  <div class="card" id="pageYes" style="display:none;">
+    <h1>Oh nooo 💔</h1>
+    <p>Come on plzzz maan jao na 🥺🥺<br>
+    aap gussa karte achi nahi lagti 😭</p>
+    <button class="no" onclick="goNoFinal()">Theek hai, ab gussa nahi 😌</button>
+    <button class="back" onclick="goBack()">maan jao</button>
+  </div>
+
+  <!-- Page 3 : NO -->
+  <div class="card" id="pageNo" style="display:none;">
+    <h1>YEAHHHH 🎉😍</h1>
+    <p>Aab gussa nahi hona ❌😠<br>
+        </p>
+    <button class="yes" onclick="loveEnd()">Pakka Promise 🤞</button>
+  </div>
+
+  <!-- Page 4 : FINAL -->
+  <div class="card" id="pageFinal" style="display:none;">
+    <h1>HEHEHEHE💖</h1>
+  </div>
+
+  <script>
+    function hideAll() {
+      document.getElementById('page1').style.display = 'none';
+      document.getElementById('pageYes').style.display = 'none';
+      document.getElementById('pageNo').style.display = 'none';
+      document.getElementById('pageFinal').style.display = 'none';
+    }
+
+    function goYes() {
+      hideAll();
+      document.getElementById('pageYes').style.display = 'block';
+    }
+
+    function goNo() {
+      hideAll();
+      document.getElementById('pageNo').style.display = 'block';
+    }
+
+    function goNoFinal() {
+      hideAll();
+      document.getElementById('pageNo').style.display = 'block';
+    }
+
+    function loveEnd() {
+      hideAll();
+      document.getElementById('pageFinal').style.display = 'block';
+    }
+
+    function goBack() {
+      hideAll();
+      document.getElementById('page1').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
